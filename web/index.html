@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ProductivityApp — Görevler, Alışkanlıklar ve Odak Seanslarınızı yönetin" />
+  <title>ProductivityApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       LOGIN SAYFASI
+  ════════════════════════════════════════════════ -->
+  <div id="page-login" class="page active">
+    <div class="login-bg">
+      <div class="login-orb orb-1"></div>
+      <div class="login-orb orb-2"></div>
+      <div class="login-orb orb-3"></div>
+    </div>
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-icon">⚡</div>
+        <h1 class="login-title">ProductivityApp</h1>
+        <p class="login-subtitle">Verimli bir gün için hazır mısın?</p>
+      </div>
+      <form id="login-form" novalidate>
+        <div class="field-group">
+          <label class="field-label" for="inp-username">Kullanıcı Adı</label>
+          <div class="field-wrapper">
+            <span class="field-icon">👤</span>
+            <input id="inp-username" class="field-input" type="text" placeholder="admin" autocomplete="username" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="inp-password">Şifre</label>
+          <div class="field-wrapper">
+            <span class="field-icon">🔒</span>
+            <input id="inp-password" class="field-input" type="password" placeholder="••••••" autocomplete="current-password" />
+            <button type="button" id="btn-toggle-pw" class="field-eye" title="Şifreyi göster">👁</button>
+          </div>
+        </div>
+        <div id="login-error" class="login-error hidden">❌ Kullanıcı adı veya şifre hatalı.</div>
+        <button type="submit" id="btn-login" class="btn btn-primary btn-full">
+          <span class="btn-text">Giriş Yap</span>
+          <span class="btn-loader hidden"></span>
+        </button>
+        <p class="login-hint">Demo: <strong>admin</strong> / <strong>1234</strong></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       ANA DASHBOARD
+  ════════════════════════════════════════════════ -->
+  <div id="page-main" class="page hidden">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">⚡</div>
+        <span class="sidebar-brand">ProductivityApp</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-page="tasks" id="nav-tasks">
+          <span class="nav-icon">✅</span>
+          <span class="nav-label">Görevler</span>
+          <span class="nav-badge" id="badge-tasks">0</span>
+        </a>
+        <a href="#" class="nav-item" data-page="habits" id="nav-habits">
+          <span class="nav-icon">🔥</span>
+          <span class="nav-label">Alışkanlıklar</span>
+          <span class="nav-badge" id="badge-habits">0</span>
+        </a>
+        <a href="#" class="nav-item" data-page="focus" id="nav-focus">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-label">Odak</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info" id="sidebar-user">
+          <div class="user-avatar" id="user-avatar-text">A</div>
+          <span class="user-name" id="sidebar-username">Admin</span>
+        </div>
+        <button class="btn-logout" id="btn-logout" title="Çıkış Yap">🚪</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- Mobil header -->
+      <header class="mobile-header">
+        <button class="hamburger" id="btn-hamburger">☰</button>
+        <span class="mobile-brand">ProductivityApp</span>
+        <button class="btn-logout-mobile" id="btn-logout-mobile" title="Çıkış">🚪</button>
+      </header>
+
+      <!-- ─── DASHBOARD ─── -->
+      <section class="content-section active" id="section-dashboard">
+        <div class="section-header">
+          <h2 class="section-title" id="welcome-text">Hoş geldin! 👋</h2>
+          <p class="section-sub" id="date-display"></p>
+        </div>
+
+        <!-- İstatistik kartları -->
+        <div class="stats-grid">
+          <div class="stat-card stat-blue">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-tasks">0</span>
+              <span class="stat-label">Aktif Görev</span>
+            </div>
+            <div class="stat-glow"></div>
+          </div>
+          <div class="stat-card stat-green">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-habits">0</span>
+              <span class="stat-label">Alışkanlık</span>
+            </div>
+            <div class="stat-glow"></div>
+          </div>
+          <div class="stat-card stat-orange">
+            <div class="stat-icon">🍅</div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-sessions">0</span>
+              <span class="stat-label">Odak Seansı</span>
+            </div>
+            <div class="stat-glow"></div>
+          </div>
+          <div class="stat-card stat-purple">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-streak">0</span>
+              <span class="stat-label">Maks. Seri</span>
+            </div>
+            <div class="stat-glow"></div>
+          </div>
+        </div>
+
+        <!-- Son görevler + alışkanlıklar -->
+        <div class="dashboard-grid">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Son Görevler</h3>
+              <button class="btn btn-sm btn-ghost" onclick="switchPage('tasks')">Tümünü Gör →</button>
+            </div>
+            <div id="recent-tasks" class="recent-list">
+              <p class="empty-msg">Henüz görev yok.</p>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3>Alışkanlık Serileri</h3>
+              <button class="btn btn-sm btn-ghost" onclick="switchPage('habits')">Tümünü Gör →</button>
+            </div>
+            <div id="recent-habits" class="recent-list">
+              <p class="empty-msg">Henüz alışkanlık yok.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── GÖREVLER ─── -->
+      <section class="content-section hidden" id="section-tasks">
+        <div class="section-header">
+          <h2 class="section-title">✅ Görevler</h2>
+          <p class="section-sub">Görevlerini ekle, takip et ve tamamla</p>
+        </div>
+
+        <!-- Arama ve Öncelik Filtresi -->
+        <div class="search-filter-bar">
+          <input id="task-search" class="field-input search-input" type="text" placeholder="🔍 Görev ara..." />
+          <select id="task-priority-filter" class="field-select priority-filter-select">
+            <option value="all">Tüm Öncelikler</option>
+            <option value="Düşük">🟢 Düşük</option>
+            <option value="Normal">🔵 Normal</option>
+            <option value="Yüksek">🔴 Yüksek</option>
+          </select>
+        </div>
+
+        <!-- Form -->
+        <div class="form-card" id="task-form-card">
+          <h3 class="form-title">Yeni Görev</h3>
+          <div class="form-row">
+            <div class="field-group flex-2">
+              <label class="field-label" for="task-title">Görev Başlığı</label>
+              <input id="task-title" class="field-input" type="text" placeholder="Görevi buraya yaz..." />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="task-priority">Öncelik</label>
+              <select id="task-priority" class="field-select">
+                <option value="Düşük">🟢 Düşük</option>
+                <option value="Normal" selected>🔵 Normal</option>
+                <option value="Yüksek">🔴 Yüksek</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="task-status">Durum</label>
+              <select id="task-status" class="field-select">
+                <option value="Bekliyor" selected>⏳ Bekliyor</option>
+                <option value="Devam Ediyor">🔄 Devam Ediyor</option>
+                <option value="Tamamlandı">✅ Tamamlandı</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="task-due">Son Tarih</label>
+              <input id="task-due" class="field-input" type="date" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button id="btn-add-task" class="btn btn-primary">➕ Görev Ekle</button>
+            <!-- Güncelleme modu butonları -->
+            <button id="btn-update-task" class="btn btn-green hidden">💾 Güncelle</button>
+            <button id="btn-cancel-edit" class="btn btn-ghost hidden">✖ İptal</button>
+          </div>
+        </div>
+
+        <!-- Durum Filtresi + Geri Al -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">Tümü</button>
+          <button class="filter-btn" data-filter="Bekliyor">Bekliyor</button>
+          <button class="filter-btn" data-filter="Devam Ediyor">Devam Ediyor</button>
+          <button class="filter-btn" data-filter="Tamamlandı">Tamamlandı</button>
+          <button id="btn-undo-delete" class="btn btn-ghost btn-sm" style="margin-left:auto" title="Son silinen görevi geri al">↩ Geri Al</button>
+        </div>
+
+        <!-- Tablo -->
+        <div class="table-card">
+          <div class="table-wrapper">
+            <table id="task-table" class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Görev</th>
+                  <th>Öncelik</th>
+                  <th>Durum</th>
+                  <th>Son Tarih</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="task-tbody">
+                <tr class="empty-row"><td colspan="6">Henüz görev eklenmedi.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── ALIŞKANLIKLAR ─── -->
+      <section class="content-section hidden" id="section-habits">
+        <div class="section-header">
+          <h2 class="section-title">🔥 Alışkanlıklar</h2>
+          <p class="section-sub">Seri oluştur, alışkanlıklarını takip et</p>
+        </div>
+
+        <!-- Form -->
+        <div class="form-card">
+          <h3 class="form-title">Yeni Alışkanlık</h3>
+          <div class="form-row">
+            <div class="field-group flex-2">
+              <label class="field-label" for="habit-name">Alışkanlık Adı</label>
+              <input id="habit-name" class="field-input" type="text" placeholder="Örn: Sabah egzersizi..." />
+            </div>
+            <div class="form-actions" style="align-self:flex-end; margin-bottom:0;">
+              <button id="btn-add-habit" class="btn btn-green">➕ Alışkanlık Ekle</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alışkanlık kartları -->
+        <div id="habit-cards" class="habit-grid">
+          <div class="empty-card">Henüz alışkanlık eklenmedi. Yukarıdan başla! 🚀</div>
+        </div>
+      </section>
+
+      <!-- ─── ODAK ─── -->
+      <section class="content-section hidden" id="section-focus">
+        <div class="section-header">
+          <h2 class="section-title">🎯 Odak Modu</h2>
+          <p class="section-sub">Pomodoro tekniğiyle verimli çalış</p>
+        </div>
+
+        <div class="focus-container">
+          <!-- Zamanlayıcı kartı -->
+          <div class="focus-card">
+            <div class="focus-ring-wrapper">
+              <svg class="focus-ring" viewBox="0 0 200 200">
+                <circle class="ring-bg" cx="100" cy="100" r="88" />
+                <circle class="ring-progress" id="ring-progress" cx="100" cy="100" r="88" />
+              </svg>
+              <div class="focus-timer-center">
+                <div class="focus-timer" id="focus-timer">25:00</div>
+                <div class="focus-status" id="focus-status">Hazır</div>
+              </div>
+            </div>
+
+            <div class="focus-controls">
+              <button id="btn-focus-start" class="btn btn-primary btn-lg">▶ Başlat</button>
+              <button id="btn-focus-reset" class="btn btn-ghost btn-lg">↺ Sıfırla</button>
+            </div>
+
+            <!-- Süre seçimi -->
+            <div class="duration-picker">
+              <button class="dur-btn active" data-min="25">25 dk</button>
+              <button class="dur-btn" data-min="45">45 dk</button>
+              <button class="dur-btn" data-min="60">60 dk</button>
+            </div>
+          </div>
+
+          <!-- Seans geçmişi -->
+          <div class="focus-history-card">
+            <div class="dash-card-header">
+              <h3>🍅 Seans Geçmişi</h3>
+              <span class="session-count-badge" id="session-count">0 seans</span>
+            </div>
+            <div id="session-list" class="session-list">
+              <p class="empty-msg">Henüz tamamlanan seans yok.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast bildirim -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Confirm modal -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-icon">🗑️</div>
+      <h3 class="modal-title" id="modal-title">Silmek istediğine emin misin?</h3>
+      <p class="modal-msg" id="modal-msg"></p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn btn-ghost">İptal</button>
+        <button id="modal-confirm" class="btn btn-danger">Sil</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
