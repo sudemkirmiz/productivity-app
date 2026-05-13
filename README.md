@@ -92,6 +92,7 @@ productivity-app/
 │   └── app.js
 ├── Program.cs
 └── ProductivityApp.csproj
+```
 ---
 
 ## 🛠️ Kullanılan Teknolojiler
@@ -103,7 +104,7 @@ productivity-app/
 | Veritabanı | SQLite (`Microsoft.Data.Sqlite 8.0.0`) |
 | Web Veri | Browser LocalStorage API |
 | Tema | `AppTheme.cs` — Catppuccin Mocha paleti |
-```
+
 ---
 
 ## 🧩 Kullanılan Collection Yapıları
