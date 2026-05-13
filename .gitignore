@@ -1,0 +1,27 @@
+# ── Visual Studio / .NET derleme çıktıları ──
+bin/
+obj/
+*.user
+.vs/
+
+# ── .NET ──
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.log
+*.tmp
+
+# ── Veritabanı (kişisel lokal veri) ──
+*.db
+*.db-shm
+*.db-wal
+
+# ── İşletim Sistemi ──
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ── Editor ──
+.idea/
+*.swp
