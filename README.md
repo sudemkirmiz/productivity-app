@@ -35,8 +35,8 @@ Proje iki sürümden oluşmaktadır:
 
 | Giriş ve Dashboard | Görevler ve Alışkanlıklar | Odak |
 |:---:|:---:|:---:|
-| ![Login Ekranı](login.png) <br> *Kullanıcı Girişi* | ![Görevler Ekranı](görevler.png) <br> *Görev Yönetimi* | ![Odak Ekranı](odak.png) <br> *Pomodoro Seansı* |
-| ![Dashboard](dashboard.png) <br> *Genel Bakış (Dashboard)* | ![Alışkanlıklar](aliskanliklar.png) <br> *Alışkanlık Takibi* | |
+| ![Login Ekranı](Screenshots/login.png) <br> *Kullanıcı Girişi* | ![Görevler Ekranı](Screenshots/görevler.png) <br> *Görev Yönetimi* | ![Odak Ekranı](Screenshots/odak.png) <br> *Pomodoro Seansı* |
+| ![Dashboard](Screenshots/dashboard.png) <br> *Genel Bakış (Dashboard)* | ![Alışkanlıklar](Screenshots/aliskanliklar.png) <br> *Alışkanlık Takibi* | |
 
 ---
 
@@ -69,7 +69,8 @@ Proje iki sürümden oluşmaktadır:
 ## 🗂️ Proje Yapısı
 
 ```text
-ProductivityApp/
+productivity-app/
+├── Screenshots/                # Uygulama ekran görüntüleri
 ├── Database/
 │   └── DatabaseHelper.cs       # SQLite CRUD işlemleri
 ├── Forms/
