@@ -31,6 +31,15 @@ Proje iki sürümden oluşmaktadır:
 
 ---
 
+## 📸 Ekran Görüntüleri
+
+| Giriş ve Dashboard | Görevler ve Alışkanlıklar | Odak |
+|:---:|:---:|:---:|
+| ![Login Ekranı](login.png) <br> *Kullanıcı Girişi* | ![Görevler Ekranı](görevler.png) <br> *Görev Yönetimi* | ![Odak Ekranı](odak.png) <br> *Pomodoro Seansı* |
+| ![Dashboard](dashboard.png) <br> *Genel Bakış (Dashboard)* | ![Alışkanlıklar](aliskanliklar.png) <br> *Alışkanlık Takibi* | |
+
+---
+
 ## ✨ Özellikler
 
 ### ✅ Görev Yönetimi
@@ -59,7 +68,7 @@ Proje iki sürümden oluşmaktadır:
 
 ## 🗂️ Proje Yapısı
 
-```
+```text
 ProductivityApp/
 ├── Database/
 │   └── DatabaseHelper.cs       # SQLite CRUD işlemleri
@@ -82,74 +91,3 @@ ProductivityApp/
 │   └── app.js
 ├── Program.cs
 └── ProductivityApp.csproj
-```
-
----
-
-## 🛠️ Kullanılan Teknolojiler
-
-| Katman | Teknoloji |
-|---|---|
-| Masaüstü UI | C# .NET 8 · Windows Forms |
-| Web UI | HTML5 · CSS3 · Vanilla JavaScript |
-| Veritabanı | SQLite (`Microsoft.Data.Sqlite 8.0.0`) |
-| Web Veri | Browser LocalStorage API |
-| Tema | `AppTheme.cs` — Catppuccin Mocha paleti |
-
----
-
-## 🧩 Kullanılan Collection Yapıları
-
-| Yapı | Kullanım Yeri | Amaç |
-|---|---|---|
-| `List<TaskItem>` | `TaskForm.cs` | Görevleri bellekte tutar, DataGridView'a bağlanır |
-| `List<Habit>` | `HabitForm.cs` | Alışkanlık listesi |
-| `List<FocusSession>` | `FocusForm.cs` | Tamamlanan seans geçmişi |
-| `Stack<T>` *(web)* | `app.js` | Silinen görevleri saklar; Geri Al ile geri getirir |
-| `Dictionary` *(web)* | `app.js` | Öncelik/durum değerlerini CSS sınıfı ve emoji ile eşleştirir |
-| `string[]` | `TaskForm.cs` | ComboBox seçeneklerini toplu ekler |
-
----
-
-## 🖥️ Kurulum ve Çalıştırma
-
-### Windows Forms Sürümü
-
-```bash
-# Gereksinimler: .NET 8 SDK
-cd ProductivityApp
-dotnet restore
-dotnet run
-```
-
-> Giriş: `admin` / `1234`
-
-### Web Sürümü
-
-`web/index.html` dosyasını herhangi bir modern tarayıcıda açın.  
-Sunucu gerekmez — tüm veriler LocalStorage'da saklanır.
-
-> Giriş: `admin` / `1234`
-
----
-
-## 📋 Ödev Maddeleri Karşılama Tablosu
-
-| # | Ödev Maddesi | Durum |
-|---|---|---|
-| 1 | Ana Form Yapısı (Login, Main, Task, Habit, Focus) | ✅ Tamamlandı |
-| 2 | Form nesneleri (Button, TextBox, ComboBox, DataGridView, Timer…) | ✅ Tamamlandı |
-| 3 | Temel sınıflar (TaskItem, Habit, FocusSession, User, DatabaseHelper…) | ✅ Tamamlandı |
-| 4 | Collection yapıları (List, Stack, Dictionary, string[]) | ✅ Tamamlandı |
-| 5 | Kayıt ekleme | ✅ Tamamlandı |
-| 6 | Listeleme (DataGridView + Web tablo) | ✅ Tamamlandı |
-| 7 | Güncelleme, filtreleme, arama, silme | ✅ Tamamlandı |
-| 8 | Mouse olayları (CellClick, mouseenter, mouseleave) | ✅ Tamamlandı |
-| 9 | Taslak arayüz | ✅ Tamamlandı |
-
----
-
-## 📄 Lisans
-
-Bu proje eğitim amaçlı hazırlanmıştır.  
-© 2026 — Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği
