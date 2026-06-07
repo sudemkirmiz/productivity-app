@@ -2,24 +2,6 @@
 
 **Web Tabanlı Kişisel Verimlilik Uygulaması**
 
-> T.C. Bursa Uludağ Üniversitesi — Mühendislik Fakültesi  
-> Bilgisayar Mühendisliği Bölümü  
-> 2025–2026 Bahar Dönemi · Görsel Programlama Dersi  
-> Ara Proje — Öğr. Gör. Koray Aki
-
----
-
-## 👥 Grup Üyeleri
-
-| Ad Soyad | Öğrenci No |
-|---|---|
-| İsmail Karatay | 032390029 |
-| Berat Çam | 032390052 |
-| Sudem Kırmız | 032390102 |
-| Ferhat Çelik | 032390039 |
-
----
-
 ## 📌 Proje Hakkında
 
 ProductivityApp; görev yönetimi, alışkanlık takibi ve Pomodoro tekniğiyle odaklanma seansı olmak üzere üç temel modülü tek çatı altında birleştiren kişisel verimlilik uygulamasıdır.
@@ -156,9 +138,3 @@ Sunucu gerekmez — tüm veriler LocalStorage'da saklanır.
 | 8 | Mouse olayları (CellClick, mouseenter, mouseleave) | ✅ Tamamlandı |
 | 9 | Taslak arayüz | ✅ Tamamlandı |
 
----
-
-## 📄 Lisans
-
-Bu proje eğitim amaçlı hazırlanmıştır.  
-© 2026 — Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği
