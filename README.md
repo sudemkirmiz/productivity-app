@@ -122,19 +122,4 @@ Sunucu gerekmez — tüm veriler LocalStorage'da saklanır.
 
 > Giriş: `admin` / `1234`
 
----
-
-## 📋 Ödev Maddeleri Karşılama Tablosu
-
-| # | Ödev Maddesi | Durum |
-|---|---|---|
-| 1 | Ana Form Yapısı (Login, Main, Task, Habit, Focus) | ✅ Tamamlandı |
-| 2 | Form nesneleri (Button, TextBox, ComboBox, DataGridView, Timer…) | ✅ Tamamlandı |
-| 3 | Temel sınıflar (TaskItem, Habit, FocusSession, User, DatabaseHelper…) | ✅ Tamamlandı |
-| 4 | Collection yapıları (List, Stack, Dictionary, string[]) | ✅ Tamamlandı |
-| 5 | Kayıt ekleme | ✅ Tamamlandı |
-| 6 | Listeleme (DataGridView + Web tablo) | ✅ Tamamlandı |
-| 7 | Güncelleme, filtreleme, arama, silme | ✅ Tamamlandı |
-| 8 | Mouse olayları (CellClick, mouseenter, mouseleave) | ✅ Tamamlandı |
-| 9 | Taslak arayüz | ✅ Tamamlandı |
 
